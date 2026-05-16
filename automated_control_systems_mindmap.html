@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated Control Systems – Mind Map</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; background: #f8f9fa; }
+    header {
+      background: #1a3a5c;
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 600; }
+    header span { font-size: 0.8rem; opacity: 0.7; }
+    #mindmap { width: 100%; height: calc(100vh - 48px); }
+    svg.markmap { width: 100%; height: 100%; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.15"></script>
+</head>
+<body>
+  <header>
+    <h1>🖥️ Automated Control Systems</h1>
+    <span>Scroll to zoom · Drag to pan · Click nodes to expand/collapse</span>
+  </header>
+  <div id="mindmap">
+    <div class="markmap">
+      <script type="text/template">
+---
+markmap:
+  colorFreezeLevel: 2
+  initialExpandLevel: 2
+---
+
+# [Automated Control Systems](https://control.com/technical-articles/understanding-the-automation-lingo-plc-pac-rtu-dcs-and-scada/)
+
+## Overview
+### Definition
+#### Hardware + software systems that monitor, regulate, and optimise industrial processes automatically
+#### Goal: maintain setpoints, maximise throughput, ensure safety, reduce human intervention
+### Scope
+#### Found in: oil & gas, power generation, cement, chemicals, water treatment, food & beverage, pharma
+### Key Standards
+#### [ISA-95](https://www.empoweredautomation.com/what-is-the-five-layer-automation-pyramid) — Automation Hierarchy
+#### IEC 61131 — PLC programming languages
+#### IEC 62443 — Industrial cybersecurity
+
+## [Automation Hierarchy (ISA-95 Pyramid)](https://kingstar.com/hierarchy-of-industrial-automation-systems/)
+### Level 0 — Field
+#### Physical process: sensors, actuators, instruments
+### Level 1 — Control
+#### PLCs, DCS controllers, PID loops
+#### Direct process regulation
+### Level 2 — Supervisory
+#### SCADA, HMI
+#### Plant-wide monitoring and operator interface
+### Level 3 — Manufacturing Execution
+#### MES (Manufacturing Execution Systems)
+#### Production scheduling, quality, OEE tracking
+### Level 4 — Enterprise
+#### ERP systems (SAP, Oracle)
+#### Finance, supply chain, business operations
+
+## Field Level: Sensors & Instruments
+### [Industrial Sensors Overview – Payatu](https://payatu.com/blog/industrial-control-system-components-plcs-hmis-rtus-scada-dcs-sensors-actuators-beyond/)
+### Temperature
+#### Thermocouples (J, K, T type) — wide range, robust
+#### RTDs (Pt100, Pt1000) — high accuracy
+#### Infrared / Pyrometers — non-contact, high temp (kiln shells)
+### Pressure
+#### Pressure transmitters (gauge, absolute, differential)
+#### Used in: vessel monitoring, filter DP, flow measurement
+### Flow
+#### Electromagnetic flow meters — conductive liquids
+#### Ultrasonic — non-invasive, clean liquids
+#### Coriolis — mass flow, high accuracy
+#### Vortex, differential pressure (orifice plate)
+### Level
+#### Ultrasonic / radar level transmitters
+#### Capacitance probes
+#### Differential pressure (hydrostatic)
+### Analytical
+#### pH / conductivity transmitters
+#### Gas analysers (O₂, CO, NOₓ, SO₂)
+#### Particle size analysers (cement mills)
+#### XRF / XRD analysers (cement quality)
+### Signal Standards
+#### 4–20 mA analog (industry backbone)
+#### [HART protocol](https://www.rwinstrumentation.com/2024/08/scada-dcs-and-plc-functions-uses.html) — digital over 4–20 mA
+#### Foundation Fieldbus, Profibus PA — fully digital fieldbus
+
+## Field Level: Actuators
+### [Industrial Actuators – Jameco](https://www.jameco.com/Jameco/Blog/industrial-automation-sensors-and-actuators.html)
+### Control Valves
+#### Pneumatic (globe, butterfly, ball)
+#### Electric actuated
+#### Characterised trim for flow control
+### Variable Frequency Drives (VFDs)
+#### Motor speed control
+#### Huge energy saving in fans, pumps, mills
+### Dampers & Louvers
+#### Air/gas flow in kilns, fans, exhaust systems
+### Solenoid Valves
+#### On/off switching, interlocks
+### Servo Motors
+#### High-precision position control
+### Feeders & Dosing Systems
+#### Belt feeders, screw conveyors, rotary valves
+
+## Control Layer
+
+### [PLC (Programmable Logic Controller)](https://www.wevolver.com/article/plc-and-scada)
+#### Purpose
+##### Sequential and discrete control
+##### Fast scan times (1–10 ms)
+##### Interlocks, sequencing, machine control
+#### Architecture
+##### CPU, digital I/O, analog I/O, communication modules
+#### Programming Languages (IEC 61131-3)
+##### Ladder Logic (LD) — relay-style, most common
+##### Function Block Diagram (FBD)
+##### Structured Text (ST) — high-level
+##### Sequential Function Chart (SFC)
+#### Typical Applications
+##### Conveyor systems, packaging, crushers, compressors
+##### Safety interlocks (safety PLCs, SIL-rated)
+#### Major Vendors
+##### Siemens S7, Allen-Bradley (Rockwell), Mitsubishi, Beckhoff
+
+### [DCS (Distributed Control System)](https://www.masterofplc.com/2024/04/differences-between-scada-and-dcs.html)
+#### Purpose
+##### Continuous process control
+##### Controllers distributed physically near the process
+##### Tight integration with operator interface
+#### Architecture
+##### Process controllers (I/O modules) distributed across plant
+##### Redundant controllers + networks
+##### Centralised operator workstations
+#### Typical Applications
+##### Cement kilns, chemical reactors, refineries, power plants
+##### Anywhere continuous regulatory control dominates
+#### Major Vendors
+##### ABB System 800xA
+##### Honeywell Experion PKS
+##### Siemens PCS 7 / PCS neo
+##### Emerson DeltaV
+##### Yokogawa Centum VP
+#### [DCS vs SCADA vs HMI Explained](https://industrialmonitordirect.com/blogs/knowledgebase/dcs-vs-hmi-vs-scada-industrial-control-systems-explained)
+
+### PAC (Programmable Automation Controller)
+#### Hybrid of PLC and DCS capabilities
+#### Used where both discrete and continuous control needed
+
+## Supervisory Layer
+
+### [SCADA (Supervisory Control and Data Acquisition)](https://www.directcompanies.com/scada-dcs-process-control-optimization/)
+#### Purpose
+##### Wide-area monitoring and control
+##### Data acquisition from remote RTUs/PLCs
+##### Historian, alarming, trending
+#### Architecture
+##### RTUs / PLCs at remote sites → communication network → central SCADA server
+#### Typical Applications
+##### Water/wastewater utilities, oil/gas pipelines, electrical grids
+##### Multi-site cement group monitoring
+#### Major Platforms
+##### Ignition (Inductive Automation)
+##### Siemens WinCC
+##### GE iFix / CIMPLICITY
+##### Wonderware (AVEVA)
+
+### [HMI (Human-Machine Interface)](https://industrialmonitordirect.com/blogs/knowledgebase/dcs-vs-hmi-vs-scada-industrial-control-systems-explained)
+#### Operator touchscreens / workstations
+#### Process mimics, trends, alarm management
+#### Modern HMIs: HTML5-based, mobile-accessible
+
+## Control Strategies
+
+### [PID Control](https://www.ic-components.com/blog/PLC-and-DCS-Architecture,Applications,and-Differences.jsp) ⭐ Foundation
+#### Proportional — reacts to current error
+#### Integral — eliminates steady-state error
+#### Derivative — anticipates rate of change
+#### Handles ~80–90% of all industrial control loops
+#### Tuning methods: Ziegler-Nichols, IMC, auto-tuners
+#### Limitations: one variable at a time, no constraint handling
+
+### Feedforward Control
+#### Measures disturbances and compensates proactively
+#### Combined with PID (feedback + feedforward)
+#### Example: fuel feed adjusted for raw material moisture changes
+
+### Cascade Control
+#### Outer loop sets setpoint for inner loop
+#### Faster inner loop compensates for process lags
+#### Example: kiln outlet temp (outer) → fuel flow (inner)
+
+### [Model Predictive Control (MPC)](https://www.directcompanies.com/scada-dcs-process-control-optimization/)
+#### Uses a dynamic process model to predict future states
+#### Optimises multiple variables simultaneously over a horizon
+#### Explicitly handles constraints (min/max limits)
+#### Typical gains: 5–15% throughput improvement in refineries
+#### Key advantage: multivariable, constraint-aware
+#### Used in: kiln optimisation, mill control, raw mix blending
+
+### Fuzzy Logic Control
+#### Rule-based control for non-linear, poorly-modelled processes
+#### Mimics operator heuristics ("if temperature is HIGH and feed is LOW then…")
+#### Used in cement kilns, blast furnaces
+
+### Expert Systems
+#### Knowledge-based rules derived from process engineers
+#### Combined with PID and MPC in Advanced Process Control platforms
+
+## Advanced Process Control (APC)
+
+### [Overview – OXmaint](https://oxmaint.com/industries/cement/cement-plant-process-control-apc-expert-systems)
+### What APC Is
+#### Supervisory optimisation layer above DCS/PLC
+#### Reads process data, computes optimal setpoints, writes back to regulatory layer
+#### Combines MPC, fuzzy logic, neural networks, expert rules
+### Performance Benefits
+#### 6–15% reduction in specific heat consumption
+#### Up to 70% reduction in manual operator interventions
+#### Improved product quality consistency
+#### Typical payback: 4–8 months for a 5,000 TPD plant
+### Major APC Platforms for Cement
+#### [ABB Ability Expert Optimizer](https://new.abb.com/cement/systems-and-solutions/advanced-process-control/abb-ability-expert-optimizer-cement)
+##### Kiln, mill, cooler, alternative fuel optimisation
+##### Linear & non-linear MPC + fuzzy logic + neural networks
+#### [FLSmidth ECS/ProcessExpert](https://www.fuller-technologies.com/products/c/process-control-and-optimisation)
+##### v9.1 released July 2024
+##### AI/ML-enhanced mill and kiln optimisation
+#### Siemens Sicement IT MCO
+##### Modular optimisation for all cement process areas
+### Integration
+#### Connects to existing DCS/SCADA via OPC-UA, Modbus
+#### Non-invasive overlay on existing control infrastructure
+
+## AI & Machine Learning in Control
+
+### [AI in Cement – DigitalDefynd](https://digitaldefynd.com/IQ/ai-in-cement-industry/)
+### Neural Network Process Models
+#### Learn complex non-linear process relationships from historical data
+#### More accurate than first-principles models for complex processes
+### Reinforcement Learning
+#### Agent learns optimal control policy through trial-and-error simulation
+#### Emerging use in kiln and mill setpoint optimisation
+### Computer Vision
+#### Cameras + algorithms monitor: raw material feeds, clinker formation, equipment wear, emissions
+#### [FLSmidth QCX/BlendExpert](https://www.cementequipment.org/home/advanced-control-systems-for-cement-mills-highlight-modern-control-systems-and-automation-used-in-cement-mills/) uses CV for raw mix chemistry optimisation
+### Predictive Maintenance
+#### Anomaly detection on vibration, temperature, power signals
+#### Early warning of bearing failure, refractory wear, etc.
+#### Reduces unplanned downtime by up to 50%
+### Digital Twins
+#### Virtual replica of physical process
+#### Used for: operator training, process optimisation, what-if analysis
+#### [Digital Twin & Industry 4.0 – NetFoundry](https://netfoundry.io/ot/the-role-of-digital-twins-and-industry-4-0-in-ot-security/)
+### Industry Case Studies
+#### [ABB + Carbon Re – Cement Decarbonisation AI](https://new.abb.com/news/detail/119831/abb-and-carbon-re-agree-joint-approach-to-enhance-low-carbon-cement-production-with-artificial-intelligence)
+##### Joint AI platform for kiln fuel optimisation + CO₂ reduction
+#### Tokuyama Cement (Japan) + ABB Expert Optimizer
+##### ~3% reduction in kiln thermal energy
+##### ~70% reduction in manual operator interventions
+#### [Anhui Conch + Huawei (2024)](https://digitaldefynd.com/IQ/ai-in-cement-industry/)
+##### 200+ AI application scenarios across entire production process
+### Market Growth
+#### AI in manufacturing: $34B (2025) → $155B (2030)
+
+## Communications & Networking
+
+### Field Bus Protocols
+#### 4–20 mA — analog, simple, robust
+#### [HART](https://www.rwinstrumentation.com/2024/08/scada-dcs-and-plc-functions-uses.html) — digital superimposed on 4–20 mA
+#### Profibus DP/PA — serial fieldbus (Siemens ecosystem)
+#### Foundation Fieldbus H1 — process industry fieldbus
+### Control Network Protocols
+#### Profinet — Ethernet-based, Siemens
+#### EtherNet/IP — Ethernet-based, Rockwell
+#### Modbus TCP — simple, widely supported
+### Enterprise Integration
+#### [OPC-UA](https://www.plcconstruction.com/news/designing-robust-control-systems-and-network-architectures-for-industrial-automation/) — universal standard, secure, cross-vendor
+#### Bridges OT (operational technology) to IT systems
+### Wireless
+#### WirelessHART — battery-powered field sensors
+#### ISA100.11a — industrial wireless standard
+#### 5G for IIoT — emerging in smart factories
+
+## Industry 4.0 & IIoT
+
+### [What is Industry 4.0 – Cisco](https://www.cisco.com/site/us/en/learn/topics/networking/what-is-industry-4-0.html)
+### Key Technologies
+#### Smart Sensors (edge computing on sensor)
+#### Cloud-connected SCADA / historian
+#### Big Data analytics (process optimisation, energy)
+#### Digital Twins (simulation + optimisation)
+#### Collaborative robots (cobots)
+### IIoT Platforms
+#### [IIoT – IoT Business News 2026](https://iotbusinessnews.com/2026/04/02/industrial-iot-iiot-applications-platforms-and-business-value/)
+#### Collect, transmit, and analyse data from thousands of field devices
+#### Enable remote monitoring and predictive analytics at scale
+### IT / OT Convergence
+#### Historically separate: OT (process) vs. IT (business)
+#### Industry 4.0 bridges them → larger attack surface
+#### Requires careful network architecture and security
+
+## Cybersecurity (OT Security)
+
+### [OT & ICS Cybersecurity – Acronis](https://www.acronis.com/en/blog/posts/ot-and-ics-cybersecurity-explained/)
+### Why OT Security is Different
+#### Breaches can cause physical damage, safety hazards, environmental harm
+#### Legacy systems designed before cybersecurity was a concern
+#### Availability > Confidentiality (opposite of IT security priority)
+### Key Standards
+#### IEC 62443 — Industrial Automation and Control Systems Security
+#### NIST Cybersecurity Framework (CSF)
+#### ISA/IEC 62443 — zone and conduit model
+### Threat Landscape
+#### Ransomware targeting OT networks (Colonial Pipeline, etc.)
+#### Nation-state attacks on critical infrastructure
+#### Supply chain attacks on control system software
+### Mitigations
+#### Network segmentation: DMZ between IT and OT
+#### Air-gapping critical control systems
+#### Patch management for ICS/SCADA systems
+#### [IIoT Cybersecurity – ScienceDirect](https://www.sciencedirect.com/article/abs/pii/S0140366423002189)
+#### Zero-trust architecture emerging in OT
+### [ISA OT/IoT Cybersecurity](https://www.isa.org/intech-home/2022/august-2022/features/ot-and-iot-cybersecurity-the-marriage-of-digital-f)
+
+## Application in Cement Plants
+
+### [ABB Cement Control Solutions](https://new.abb.com/control-systems/industry-specific-solutions/cement)
+### Kiln Control
+#### Regulation of: burning zone temp, kiln speed, ID fan draft, fuel feed, secondary air temp
+#### APC overlay manages multiple variables simultaneously
+#### Vision systems monitor flame shape and clinker bed
+### Raw Mill Control
+#### Feed rate control, separator speed, mill pressure drop
+#### Product fineness prediction (soft sensor)
+### Coal Mill Control
+#### Coal fineness, mill outlet temperature (explosion risk management)
+### Cooler Control
+#### Grate speed zones, cooling fan flows
+#### Clinker temperature at cooler exit
+### Quality Control Loops
+#### [XRF analyser](https://www.thermofisher.com/blog/mining/the-cement-manufacturing-process/) → DCS setpoint adjustments for raw mix chemistry
+#### Automated lab sampling and result feedback
+### Energy Management
+#### Specific heat consumption (kJ/kg clinker) tracking
+#### Power monitoring per process area (kWh/t)
+#### Demand management to reduce peak tariffs
+### [Future of APC in Cement – Carbon Re](https://carbonre.com/the-future-of-advanced-process-control-in-cement-production)
+#### AI-driven closed-loop control fully automating kiln operation
+#### Integration of CO₂ optimisation into APC objectives
+
+      </script>
+    </div>
+  </div>
+</body>
+</html>

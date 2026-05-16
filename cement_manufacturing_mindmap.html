@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cement Manufacturing – Mind Map</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; background: #f8f9fa; }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 600; }
+    header span { font-size: 0.8rem; opacity: 0.7; }
+    #mindmap { width: 100%; height: calc(100vh - 48px); }
+    svg.markmap { width: 100%; height: 100%; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.15"></script>
+</head>
+<body>
+  <header>
+    <h1>⚙️ Cement Manufacturing</h1>
+    <span>Scroll to zoom · Drag to pan · Click nodes to expand/collapse</span>
+  </header>
+  <div id="mindmap">
+    <div class="markmap">
+      <script type="text/template">
+---
+markmap:
+  colorFreezeLevel: 2
+  initialExpandLevel: 2
+---
+
+# [Cement Manufacturing](https://en.wikipedia.org/wiki/Cement)
+
+## Overview
+### Definition
+#### Hydraulic binder: hardens when mixed with water
+#### Most common type: [Portland Cement](https://en.wikipedia.org/wiki/Portland_cement)
+### Global Scale
+#### ~4.1 billion tonnes produced per year
+#### [IEA Cement Overview](https://www.iea.org/energy-system/industry/cement)
+#### Top producers: China, India, USA, Vietnam, Turkey
+
+## Raw Materials
+### [Limestone](https://www.thermofisher.com/blog/mining/the-cement-manufacturing-process/) (80–90% of raw mix)
+#### Source of calcium (CaCO₃)
+#### Must be calcined at ~900°C to form CaO
+### Clay / Shale
+#### Source of silica, alumina, iron
+### Iron Ore / Laterite
+#### Provides ferrite phase in clinker
+### Gypsum
+#### Added after kiln (~3–5%)
+#### Controls setting time of final cement
+### Corrective Materials
+#### Bauxite (extra alumina), silica sand, blast furnace slag
+### [Alternative Raw Materials](https://www.tandfonline.com/doi/full/10.1080/19397038.2020.1822949)
+#### Industrial by-products increasingly used
+#### Reduces virgin resource extraction
+
+## Clinker Chemistry
+### [Cement Clinker – Wikipedia](https://en.wikipedia.org/wiki/Cement_clinker)
+### Four Main Mineral Phases
+#### Alite – C₃S (Tricalcium Silicate) — 50–60%
+##### Responsible for early strength development
+#### Belite – C₂S (Dicalcium Silicate) — 20–25%
+##### Responsible for long-term strength
+#### Tricalcium Aluminate – C₃A — 6–10%
+##### Fast-reacting; controlled by gypsum
+#### Tetracalcium Aluminoferrite – C₄AF — 6–10%
+##### Gives cement its grey colour
+### Clinkerisation Temperature
+#### ~1,450°C in rotary kiln
+### Hydration
+#### C-S-H gel (Calcium Silicate Hydrate) = primary binding "glue"
+
+## Manufacturing Processes
+
+### [Dry Process](https://www.suryagoldcement.com/blog/dry-process-of-cement-manufacturing/) ✅ Dominant Globally
+#### How it works
+##### Raw materials crushed, dried, ground to fine powder (<1% moisture)
+##### Powder fed to preheater tower → precalciner → rotary kiln
+##### Clinker cooled → ground with gypsum → cement
+#### Energy
+##### ~3,000–3,200 kJ/kg clinker (most efficient)
+#### Where used
+##### Japan & Germany: >95% of capacity
+##### USA, China, India: majority of modern plants
+##### All new greenfield plants globally
+#### Why preferred
+##### Lower fuel consumption — no water to evaporate
+##### Suits dry climates and low-moisture raw materials
+##### Precalciner technology enables very large kilns (up to 12,000 t/day)
+#### Limitations
+##### Higher power consumption for grinding
+##### More dust generation (requires bag filters/ESP)
+#### [Dry Process Detail – AGICO](https://rotarykilnfactory.com/why-choose-dry-process-from-manufacturing-cement-methods/)
+
+### [Wet Process](https://www.britannica.com/technology/wet-process) 🌊 Oldest Method
+#### How it works
+##### Raw materials mixed with water → slurry (30–40% water by weight)
+##### Slurry fed directly into long rotary kiln
+##### Water evaporated in initial kiln zone (energy-intensive)
+#### Energy
+##### ~5,234–6,490 kJ/kg clinker (50–100% more than dry)
+#### Where used
+##### Historically dominant in UK, Eastern Europe, parts of Africa
+##### Still operating in countries with: high-moisture raw materials, aging plant stock, low energy cost
+##### Some South Asian & Sub-Saharan African plants retain wet kilns
+#### Why still used
+##### Simpler operation and better raw mix homogeneity
+##### Easier to handle sticky or high-moisture raw materials
+##### Lower capital cost for small/legacy operations
+#### Limitations
+##### Very high energy and water consumption
+##### Long kiln required (~150–200m)
+##### Increasingly replaced by dry process globally
+#### [Wet Process Overview](https://cementplantequipment.com/all-about-the-wet-process-of-cement-manufacturing/)
+
+### [Semi-Dry Process (Lepol)](https://www.cementkilns.co.uk/lepol_kilns.html) 🔄 Transitional
+#### How it works
+##### Raw materials ground dry, then ~12–14% water added to form pellets
+##### Pellets fed onto Lepol grate preheater (exhaust gases preheat pellets)
+##### Preheated feed enters rotary kiln for clinkerisation
+#### Energy
+##### Comparable to modern dry process preheater kilns
+#### Where used
+##### France and Germany: historically significant adoption
+##### Nigeria (West African Portland Cement Co., Ewekoro — operated for ~30 years)
+##### ~16% of European capacity uses semi-dry/semi-wet combined
+#### Why used
+##### Handles high-moisture raw materials better than pure dry process
+##### Much lower dust in exhaust gases than suspension preheater kilns
+##### Good option for regions with damp raw material deposits
+#### Limitations
+##### Pelletising step adds complexity
+##### Largely superseded by modern dry process with efficient drying systems
+
+### [Semi-Wet Process](https://www.cementkilns.co.uk/long_wet_kilns.html) 🔀 Bridge Technology
+#### How it works
+##### Wet slurry produced, then ~2/3 of water removed via filter presses
+##### Filter cake extruded into pellets or fed directly to rotary kiln
+##### Can be fed to converted wet kiln or dry process kiln with dryer
+#### Energy
+##### Between wet and dry process
+#### Where used
+##### UK plants (historical, largely decommissioned)
+##### Transitional use when upgrading wet plants to dry
+#### Why used
+##### Allows wet process plants to improve efficiency without full rebuild
+##### Reduces kiln length required vs. pure wet process
+
+## Kiln Technology
+### [Kiln Types Overview](https://www.cementequipment.org/home/comprehensive-guide-to-cement-kilns-processes-types-efficiency-and-innovations/)
+### Shaft Kiln
+#### Vertical, static calcination
+#### Low investment, fast deployment
+#### Only viable for small-scale / specialty cement
+#### Largely replaced in large-scale OPC production
+#### Still common in smaller developing-country operations
+### Long Wet Rotary Kiln
+#### 150–200m long cylinder, slow rotation
+#### Used exclusively for wet process
+#### Being progressively retired globally
+### Suspension Preheater (SP) Kiln
+#### Multi-stage cyclone tower preheats raw meal
+#### Reduced kiln length and fuel use vs. wet kilns
+#### Foundation of modern dry process
+### Precalciner Kiln ⭐ Modern Standard
+#### [Preheaters & Precalciners – Infinity Cement](https://www.cementequipment.org/home/everything-you-need-to-know-about-preheaters-and-precalciners/)
+#### Precalciner vessel burns 60–75% of total fuel outside the kiln
+#### Feed entering kiln is ~100% calcined
+#### 50–70% more output than SP kiln of same diameter
+#### State-of-the-art capacity: up to 12,000 t/day
+### Lepol (Grate Process) Kiln
+#### Used in semi-dry process
+#### Grate preheater uses moving bed of pellets
+#### Low dust, energy-efficient
+### Grate Cooler
+#### Rapidly quenches clinker exiting kiln
+#### Recovers heat for fuel preheating
+
+## Cement Types & Standards
+### [Cement Wikipedia](https://en.wikipedia.org/wiki/Cement)
+### Ordinary Portland Cement (OPC)
+#### Most common globally; ASTM C150, EN 197-1
+### Portland Pozzolana Cement (PPC)
+#### OPC + fly ash or volcanic ash (15–35%)
+#### Lower heat of hydration; widely used in India
+### Portland Slag Cement (PSC)
+#### OPC + GGBFS; good sulfate resistance
+### Rapid Hardening Cement (RHPC)
+#### Higher C₃S content; used where early strength critical
+### Low Heat Cement
+#### Lower C₃A and C₃S; used in mass concrete (dams)
+### Sulfate Resistant Cement (SRC)
+#### Very low C₃A; used in marine/soil environments
+### White Cement
+#### Low iron content; decorative applications
+### Blended Cements
+#### Portland cement + SCMs; reduced carbon footprint
+
+## Supplementary Cementitious Materials (SCMs)
+### [CEMEX SCM Guide](https://www.cemexusa.com/w/what-are-supplementary-cementitious-materials-scms)
+### Fly Ash
+#### Byproduct of coal-fired power plants
+#### Class F (pozzolanic) — low calcium
+#### Class C (pozzolanic + cementitious) — high calcium
+#### Most widely used SCM globally
+### GGBFS (Ground Granulated Blast-Furnace Slag)
+#### Byproduct of iron smelting
+#### Hydraulic — reacts with water directly
+#### Improves durability, reduces heat of hydration
+### Silica Fume
+#### Byproduct of silicon/ferrosilicon production
+#### Particles 100–150× smaller than cement
+#### Very high pozzolanic activity; used in high-performance concrete
+### Natural Pozzolans
+#### Volcanic ash (e.g. Italian pozzolana), calcined clays
+#### 15–35% replacement levels typical
+### Benefits of SCMs
+#### Reduce clinker content → lower CO₂ per tonne cement
+#### Improve long-term strength, durability, sulfate resistance
+#### Utilise industrial waste streams
+
+## Environmental Impact
+### CO₂ Emissions
+#### [IEA Cement – Emissions](https://www.iea.org/energy-system/industry/cement)
+#### ~8% of global CO₂ emissions
+#### ~1.6 billion tonnes CO₂ in 2022
+#### Process emissions (calcination): ~60% of total
+#### Energy combustion: ~40% of total
+#### If a country: 3rd or 4th largest emitter globally
+### [Decarbonization Roadmap – WEF](https://www.weforum.org/stories/2024/09/cement-production-sustainable-concrete-co2-emissions/)
+### Pathways to Net Zero
+#### Carbon Capture & Storage (CCS/CCUS)
+##### Largest single lever: up to 36% emission reduction
+##### [First CCS cement plant: Brevik, Norway](https://www.carbon-direct.com/insights/decarbonizing-cement-and-concrete-are-their-emissions-set-in-stone) (Heidelberg Materials, 2024)
+##### Oxyfuel + CCS: captures process + combustion CO₂
+#### Alternative Fuels
+##### Biomass, waste-derived fuels, hydrogen
+##### Some plants use >80% alternative fuel substitution
+##### Limited CO₂ benefit for process emissions
+#### SCM Substitution
+##### Reduce clinker-to-cement ratio from ~0.9 to ~0.6–0.7
+##### Direct CO₂ reduction proportional to substitution rate
+#### Electrochemical Cement (Emerging)
+##### [Sublime Systems](https://www.globalefficiencyintel.com/emissions-impacts-of-alternative-fuels-combustion-in-the-cement-industry): uses electricity not heat
+##### Avoids calcination CO₂ entirely
+#### Energy Efficiency
+##### Modern precalciner plants: ~3,000 kJ/kg vs. wet kiln 6,000+ kJ/kg
+### Key Industry Initiatives
+#### [American Cement Association – Net Zero Roadmap](https://www.cement.org/a-sustainable-future/roadmap-to-carbon-neutrality/)
+#### [Global Cement & Concrete Association (GCCA)](https://www.weforum.org/stories/2024/09/cement-production-sustainable-concrete-co2-emissions/)
+#### Holcim, Heidelberg, Cemex all have 2050 net-zero targets
+
+## Major Producers
+### China
+#### Anhui Conch Cement – world's largest single producer
+#### CNBM (China National Building Material Group)
+#### ~55% of global cement output
+### Europe
+#### Holcim (Switzerland) – largest global group
+#### HeidelbergMaterials (Germany)
+#### Cemex (Mexico, global operations)
+### India
+#### UltraTech Cement – largest outside China
+#### Ambuja, ACC, Shree Cement
+### USA
+#### Lehigh Hanson (HeidelbergMaterials), Holcim US, Martin Marietta
+
+      </script>
+    </div>
+  </div>
+</body>
+</html>
